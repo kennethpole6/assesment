@@ -1,0 +1,109 @@
+@use "../styles/mixin.module.scss" as mixin;
+
+.anime_container {
+  background-image: url(../assets/kimet.jpg);
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  height: 120vh;
+  padding: 0 4rem;
+  box-shadow: 30rem 5rem 20rem rgba(0, 0, 0, 1) inset;
+  color: mixin.$contrast-color;
+}
+
+.anime_content {
+  position: relative;
+  width: 50%;
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+  }
+  p {
+    margin-bottom: 2rem;
+  }
+
+  .anime_category {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .anime_rating {
+    display: flex;
+    align-items: center;
+
+    * {
+      margin-right: 0.5rem;
+    }
+  }
+
+  // Anime desc CTA
+  .anime_cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .anime_link {
+      background-color: mixin.$primary-color;
+      color: mixin.$contrast-color;
+      border-radius: 5px;
+      padding: 0.8rem 1rem;
+      display: flex;
+      width: 25%;
+      align-items: center;
+
+      * {
+        margin: 0 0.5rem;
+      }
+    }
+
+    .anime_bookmark {
+      border: 1px solid mixin.$contrast-color;
+      border-radius: 5px;
+      color: mixin.$contrast-color;
+      border-radius: 5px;
+      padding: 0.8rem 1rem;
+    }
+  }
+}
+
+.tabs_container {
+  position: absolute;
+  bottom: -5rem;
+  padding: 0 4rem;
+  color: mixin.$contrast-color;
+
+  width: 100%;
+
+  .tab_link {
+    display: inline-block;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+
+      height: 4px;
+      bottom: -8px;
+      left: 0;
+      border-radius: 8px;
+      background-color: mixin.$primary-color;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+
+  * {
+    margin-right: 2rem;
+  }
+}
