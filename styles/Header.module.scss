@@ -88,7 +88,6 @@
       position: absolute;
       width: 100%;
       transform: scaleX(0);
-
       height: 4px;
       bottom: -8px;
       left: 0;
@@ -100,6 +99,7 @@
 
     &:hover::after {
       transform: scaleX(1);
+      height: 4px;
       transform-origin: bottom left;
     }
   }
