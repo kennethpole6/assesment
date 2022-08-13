@@ -1,12 +1,9 @@
-import React from "react";
-import Header from "./Header";
-import Trending from "./Trending";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Header />
-      <Trending />
+      <Navbar />
       <div>{children}</div>
     </>
   );

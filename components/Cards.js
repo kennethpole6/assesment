@@ -1,3 +1,4 @@
+import { FaStar } from "react-icons/fa";
 import styles from "../styles/Trending.module.scss";
 
 const Cards = ({ title, category, rating, image }) => {
@@ -6,8 +7,12 @@ const Cards = ({ title, category, rating, image }) => {
       <img src={image} alt="Anime Cover" />
       <div className={styles.desc}>
         <h3>{title}</h3>
-        <p>{category}</p>
-        <p>{rating}</p>
+        <div className={styles.sub_desc}>
+          <p>{category}</p>
+          <p>
+            <FaStar style={{ color: "#fbc94a" }} /> {rating}
+          </p>
+        </div>
       </div>
     </div>
   );

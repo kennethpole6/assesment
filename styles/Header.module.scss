@@ -45,6 +45,7 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    cursor: pointer;
 
     .anime_link {
       background-color: mixin.$primary-color;
@@ -105,5 +106,76 @@
 
   * {
     margin-right: 2rem;
+  }
+}
+
+//episodes
+.episodes_header {
+  margin: 2rem 4rem;
+  color: mixin.$contrast-color;
+
+  span {
+    color: mixin.$secondary-color;
+  }
+}
+
+.episodes_container {
+  color: mixin.$contrast-color;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+
+  img {
+    border-radius: 20px;
+  }
+
+  .episodes_anime_info {
+    position: relative;
+    width: 75%;
+    padding: 0;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 50rem;
+    }
+
+    p {
+      line-height: 22px;
+      color: mixin.$gray-color;
+    }
+    .episodes_desc {
+      position: absolute;
+      bottom: 7.7rem;
+      width: 100%;
+      padding: 0.5rem 2rem;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 10rem -10rem 10rem rgba(0, 0, 0, 0.8) inset;
+    }
+    .episodes_sub_desc {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .episodes_anime_tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .episodes_cards {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    gap: 1rem;
+    margin: 1rem 0;
+    transition: 0.5s ease;
+
+    p {
+      color: mixin.$gray-color;
+    }
   }
 }

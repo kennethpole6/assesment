@@ -1,20 +1,42 @@
 import Link from "next/link";
-import Data from "./CarouselData";
+import Data from "../Data/CarouselData";
 import styles from "../styles/Header.module.scss";
 import { FaStar, FaPlay, FaHeart } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 const HeaderContent = () => {
-  let activeStyle = {
-    textDecoration: "underline",
-  };
-
-  let activeClassName = "underline";
   return (
     <>
       <div className={styles.anime_container}>
         {Data.map((item) => {
           return (
-            <div key={item.id} className={styles.anime_content}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, x: "20px" }}
+              transition={{ duration: 0.9 }}
+              key={item.id}
+              className={styles.anime_content}
+            >
               <h1>{item.title}</h1>
               <div className={styles.anime_category}>
                 <p className={styles.anime_rating}>
@@ -26,23 +48,35 @@ const HeaderContent = () => {
               <p>{item.description}</p>
               <div className={styles.anime_cta}>
                 <Link href="/">
-                  <a className={styles.anime_link}>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={styles.anime_link}
+                  >
                     <FaPlay />
                     Watch Now
-                  </a>
+                  </motion.a>
                 </Link>
                 <Link href="/">
-                  <a className={styles.anime_bookmark}>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={styles.anime_bookmark}
+                  >
                     <FaHeart />
-                  </a>
+                  </motion.a>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
 
-      <div className={styles.tabs_container}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className={styles.tabs_container}
+      >
         <Link href="/">
           <a className={styles.tab_link}>Overview</a>
         </Link>
@@ -52,7 +86,7 @@ const HeaderContent = () => {
         <Link href="/">
           <a className={styles.tab_link}>Details</a>
         </Link>
-      </div>
+      </motion.div>
     </>
   );
 };
